@@ -17,8 +17,38 @@
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(persistentStoresDidChange:)
+     name:NSPersistentStoreCoordinatorStoresDidChangeNotification
+     object:[[self managedObjectContext]
+             persistentStoreCoordinator]];
+    
 }
 
+
+- (void)viewDidUnload
+{
+    [[NSNotificationCenter defaultCenter]
+     removeObserver:self
+     name:NSPersistentStoreCoordinatorStoresDidChangeNotification
+     object:[[self managedObjectContext]
+             persistentStoreCoordinator]];
+    
+    [super viewDidUnload];
+}
+
+
+- (void)persistentStoresDidChange:(NSNotification *)aNotification
+{
+    NSError *anyError = nil;
+    BOOL success = [[self fetchedResultsController]
+                    performFetch:&anyError];
+    if( !success ) {
+        NSLog(@"Error fetching: %@", anyError);
+    }
+    //[[self tableView] reloadData];
+}
 
 - (IBAction)insert:(id)sender
 {

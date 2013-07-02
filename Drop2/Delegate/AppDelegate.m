@@ -15,12 +15,237 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+@synthesize documentSyncManager = _documentSyncManager;
+@synthesize downloadStoreAfterRegistering =
+_downloadStoreAfterRegistering;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Dropbox session
+    DBSession *session = [[DBSession alloc] initWithConsumerKey:kTICDDropboxSyncKey
+                            consumerSecret:kTICDDropboxSyncSecret];
+    [session setDelegate:self];
+    [DBSession setSharedSession:session];
+    
+    // Request login dropbox
+    if([session isLinked] ) {
+        [self registerSyncManager];
+    } else {
+        DBLoginController *loginController =
+        [[DBLoginController alloc] init];
+        [loginController setDelegate:self];
+        [[self navigationController] pushViewController:loginController animated:NO];
+    }
+    
+    // Push managedObjectContext
     ViewController *rootViewController = (ViewController *)self.window.rootViewController;
     rootViewController.managedObjectContext = self.managedObjectContext;
 
     return YES;
+}
+
+- (void)sessionDidReceiveAuthorizationFailure:(DBSession *)session
+{
+    DBLoginController *loginController =
+    [[DBLoginController alloc] init];
+    [loginController setDelegate:self];
+    
+    [[self navigationController] pushViewController:loginController
+                                           animated:YES];
+}
+
+
+- (void)loginControllerDidLogin:(DBLoginController *)controller
+{
+    [[self navigationController] popViewControllerAnimated:YES];
+    
+    [self registerSyncManager];
+}
+
+- (void)loginControllerDidCancel:(DBLoginController *)controller
+{
+    [[self navigationController] popViewControllerAnimated:YES];
+}
+
+- (void)registerSyncManager
+{
+    TICDSDropboxSDKBasedApplicationSyncManager *manager =
+    [TICDSDropboxSDKBasedApplicationSyncManager
+     defaultApplicationSyncManager];
+    
+    NSString *clientUuid = [[NSUserDefaults standardUserDefaults]
+                            stringForKey:@"iOSNotebookAppSyncClientUUID"];
+    if( !clientUuid ) {
+        clientUuid = [TICDSUtilities uuidString];
+        [[NSUserDefaults standardUserDefaults]
+         setValue:clientUuid
+         forKey:@"iOSNotebookAppSyncClientUUID"];
+    }
+    
+    NSString *deviceDescription = [[UIDevice currentDevice] name];
+    
+    [manager registerWithDelegate:self
+              globalAppIdentifier:@"com.mezhevikin.Drop2"
+           uniqueClientIdentifier:clientUuid
+                      description:deviceDescription
+                         userInfo:nil];
+}
+
+
+- (void)applicationSyncManagerDidPauseRegistrationToAskWhether\
+ToUseEncryptionForFirstTimeRegistration:
+(TICDSApplicationSyncManager *)aSyncManager
+{
+    [aSyncManager continueRegisteringWithEncryptionPassword:nil];
+}
+
+
+- (void)applicationSyncManagerDidPauseRegistrationToRequestPassword\
+ForEncryptedApplicationSyncData:
+(TICDSApplicationSyncManager *)aSyncManager
+{
+    [aSyncManager continueRegisteringWithEncryptionPassword:nil];
+}
+
+
+- (TICDSDocumentSyncManager *)applicationSyncManager:
+(TICDSApplicationSyncManager *)aSyncManager
+preConfiguredDocumentSyncManagerForDownloadedDocumentWithIdentifier:
+(NSString *)anIdentifier atURL:(NSURL *)aFileURL
+{
+    return nil;
+}
+
+- (void)applicationSyncManagerDidFinishRegistering:
+(TICDSApplicationSyncManager *)aSyncManager
+{
+    TICDSDropboxSDKBasedDocumentSyncManager *docSyncManager =
+    [[TICDSDropboxSDKBasedDocumentSyncManager alloc] init];
+    
+    [docSyncManager registerWithDelegate:self
+                          appSyncManager:aSyncManager
+                    managedObjectContext:[self managedObjectContext]
+                      documentIdentifier:@"Drop2"
+                             description:@"Application's data"
+                                userInfo:nil];
+    [self setDocumentSyncManager:docSyncManager];
+    
+}
+
+
+- (void)documentSyncManager:(TICDSDocumentSyncManager *)aSyncManager
+didPauseSynchronizationAwaitingResolutionOfSyncConflict:
+(id)aConflict
+{
+    [aSyncManager
+     continueSynchronizationByResolvingConflictWithResolutionType:
+     TICDSSyncConflictResolutionTypeLocalWins];
+}
+
+
+- (NSURL *)documentSyncManager:(TICDSDocumentSyncManager *)aSyncManager
+URLForWholeStoreToUploadForDocumentWithIdentifier:
+(NSString *)anIdentifier
+                   description:(NSString *)aDescription
+                      userInfo:(NSDictionary *)userInfo
+{
+    return [[self applicationDocumentsDirectory]
+            URLByAppendingPathComponent:@"Drop2.sqlite"];
+}
+
+
+- (void)documentSyncManager:(TICDSDocumentSyncManager *)aSyncManager
+didPauseRegistrationAsRemoteFileStructureDoesNotExist\
+ForDocumentWithIdentifier:(NSString *)anIdentifier
+description:(NSString *)aDescription
+userInfo:(NSDictionary *)userInfo
+{
+    [aSyncManager continueRegistrationByCreatingRemoteFileStructure:YES];
+}
+
+- (void)documentSyncManager:(TICDSDocumentSyncManager *)aSyncManager
+didPauseRegistrationAsRemoteFileStructureWasDeleted\
+ForDocumentWithIdentifier:(NSString *)anIdentifier
+description:(NSString *)aDescription
+userInfo:(NSDictionary *)userInfo
+{
+    [aSyncManager continueRegistrationByCreatingRemoteFileStructure:YES];
+}
+
+- (void)documentSyncManagerDidFinishRegistering:
+(TICDSDocumentSyncManager *)aSyncManager
+{
+    if( [self shouldDownloadStoreAfterRegistering] ) {
+        [[self documentSyncManager] initiateDownloadOfWholeStore];
+    }
+}
+
+
+- (void)documentSyncManager:(TICDSDocumentSyncManager *)aSyncManager
+didPauseRegistrationAsRemoteFileStructureDoesNotExist\
+ForDocumentWithIdentifier:(NSString *)anIdentifier
+description:(NSString *)aDescription
+userInfo:(NSDictionary *)userInfo
+{
+    [self setDownloadStoreAfterRegistering:NO];
+    [aSyncManager continueRegistrationByCreatingRemoteFileStructure:YES];
+}
+
+- (void)documentSyncManager:(TICDSDocumentSyncManager *)aSyncManager
+didPauseRegistrationAsRemoteFileStructureWasDeleted\
+ForDocumentWithIdentifier:(NSString *)anIdentifier
+description:(NSString *)aDescription
+userInfo:(NSDictionary *)userInfo
+{
+    [self setDownloadStoreAfterRegistering:NO];
+    [aSyncManager continueRegistrationByCreatingRemoteFileStructure:YES];
+}
+
+- (void)documentSyncManagerDidDetermineThat\
+ClientHadPreviouslyBeenDeletedFrom\
+SynchronizingWithDocument:(TICDSDocumentSyncManager *)aSyncManager
+{
+    [self setDownloadStoreAfterRegistering:YES];
+}
+
+
+- (BOOL)documentSyncManagerShouldUploadWholeStore\
+AfterDocumentRegistration:(TICDSDocumentSyncManager *)aSyncManager
+{
+    return ![self shouldDownloadStoreAfterRegistering];
+}
+
+
+- (void)documentSyncManager:(TICDSDocumentSyncManager *)aSyncManager
+willReplaceStoreWithDownloadedStoreAtURL:(NSURL *)aStoreURL
+{
+    NSError *anyError = nil;
+    BOOL success = [[self persistentStoreCoordinator]
+                    removePersistentStore:
+                    [[self persistentStoreCoordinator]
+                     persistentStoreForURL:aStoreURL]
+                    error:&anyError];
+    
+    if( !success ) {
+        NSLog(@"Failed to remove persistent store at %@: %@",
+              aStoreURL, anyError);
+    }
+}
+
+
+- (void)documentSyncManager:(TICDSDocumentSyncManager *)aSyncManager
+didReplaceStoreWithDownloadedStoreAtURL:(NSURL *)aStoreURL
+{
+    NSError *anyError = nil;
+    id store = [[self persistentStoreCoordinator]
+                addPersistentStoreWithType:NSSQLiteStoreType
+                configuration:nil
+                URL:aStoreURL options:nil error:&anyError];
+    
+    if( !store ) {
+        NSLog(@"Failed to add persistent store at %@: %@",
+              aStoreURL, anyError);
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -91,7 +316,7 @@
         return _managedObjectModel;
     }
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Drop2" withExtension:@"momd"];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    _managedObjectModel = [[TICDSSynchronizedManagedObjectContext alloc] init];
     return _managedObjectModel;
 }
 
@@ -104,6 +329,12 @@
     }
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Drop2.sqlite"];
+
+    //
+    if( ![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]] ) {
+        [self setDownloadStoreAfterRegistering:YES];
+    }
+    ///
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -142,6 +373,11 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+- (void)dealloc
+{
+   
 }
 
 @end

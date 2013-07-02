@@ -3,8 +3,9 @@
     <entity name="People" representedClassName="People" syncable="YES">
         <attribute name="faceID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ticdsSyncID" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="People" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="People" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>
