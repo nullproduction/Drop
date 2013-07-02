@@ -10,15 +10,18 @@
 		C393EB7E1783058C00DDA9DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C393EB7D1783058C00DDA9DD /* UIKit.framework */; };
 		C393EB801783058C00DDA9DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C393EB7F1783058C00DDA9DD /* Foundation.framework */; };
 		C393EB821783058C00DDA9DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C393EB811783058C00DDA9DD /* CoreGraphics.framework */; };
-		C393EB881783058C00DDA9DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C393EB861783058C00DDA9DD /* InfoPlist.strings */; };
-		C393EB8A1783058C00DDA9DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C393EB891783058C00DDA9DD /* main.m */; };
-		C393EB8E1783058C00DDA9DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C393EB8D1783058C00DDA9DD /* AppDelegate.m */; };
-		C393EB901783058C00DDA9DD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C393EB8F1783058C00DDA9DD /* Default.png */; };
-		C393EB921783058C00DDA9DD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C393EB911783058C00DDA9DD /* Default@2x.png */; };
-		C393EB941783058C00DDA9DD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C393EB931783058C00DDA9DD /* Default-568h@2x.png */; };
-		C393EB971783058C00DDA9DD /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C393EB951783058C00DDA9DD /* MainStoryboard_iPhone.storyboard */; };
-		C393EB9A1783058C00DDA9DD /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C393EB981783058C00DDA9DD /* MainStoryboard_iPad.storyboard */; };
-		C393EB9D1783058C00DDA9DD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C393EB9C1783058C00DDA9DD /* ViewController.m */; };
+		C393EBBB178306A200DDA9DD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C393EBA5178306A200DDA9DD /* ViewController.m */; };
+		C393EBBC178306A200DDA9DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C393EBA8178306A200DDA9DD /* AppDelegate.m */; };
+		C393EBBD178306A200DDA9DD /* Drop2-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C393EBA9178306A200DDA9DD /* Drop2-Info.plist */; };
+		C393EBBE178306A200DDA9DD /* Drop2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C393EBAD178306A200DDA9DD /* Drop2.xcdatamodeld */; };
+		C393EBBF178306A200DDA9DD /* People.m in Sources */ = {isa = PBXBuildFile; fileRef = C393EBB0178306A200DDA9DD /* People.m */; };
+		C393EBC0178306A200DDA9DD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C393EBB2178306A200DDA9DD /* Default-568h@2x.png */; };
+		C393EBC1178306A200DDA9DD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C393EBB3178306A200DDA9DD /* Default.png */; };
+		C393EBC2178306A200DDA9DD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C393EBB4178306A200DDA9DD /* Default@2x.png */; };
+		C393EBC3178306A200DDA9DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C393EBB5178306A200DDA9DD /* InfoPlist.strings */; };
+		C393EBC4178306A200DDA9DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C393EBB8178306A200DDA9DD /* Main.storyboard */; };
+		C393EBC5178306A200DDA9DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C393EBBA178306A200DDA9DD /* main.m */; };
+		C393EBC7178306CE00DDA9DD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C393EBC6178306CE00DDA9DD /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,19 +29,22 @@
 		C393EB7D1783058C00DDA9DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C393EB7F1783058C00DDA9DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C393EB811783058C00DDA9DD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		C393EB851783058C00DDA9DD /* Drop2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Drop2-Info.plist"; sourceTree = "<group>"; };
-		C393EB871783058C00DDA9DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C393EB891783058C00DDA9DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C393EB8B1783058C00DDA9DD /* Drop2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Drop2-Prefix.pch"; sourceTree = "<group>"; };
-		C393EB8C1783058C00DDA9DD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		C393EB8D1783058C00DDA9DD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C393EB8F1783058C00DDA9DD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		C393EB911783058C00DDA9DD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		C393EB931783058C00DDA9DD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		C393EB961783058C00DDA9DD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		C393EB991783058C00DDA9DD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		C393EB9B1783058C00DDA9DD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C393EB9C1783058C00DDA9DD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C393EBA4178306A200DDA9DD /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C393EBA5178306A200DDA9DD /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C393EBA7178306A200DDA9DD /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C393EBA8178306A200DDA9DD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C393EBA9178306A200DDA9DD /* Drop2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Drop2-Info.plist"; path = "../Drop2-Info.plist"; sourceTree = "<group>"; };
+		C393EBAA178306A200DDA9DD /* Drop2-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Drop2-Prefix.pch"; path = "../Drop2-Prefix.pch"; sourceTree = "<group>"; };
+		C393EBAE178306A200DDA9DD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		C393EBAF178306A200DDA9DD /* People.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = People.h; sourceTree = "<group>"; };
+		C393EBB0178306A200DDA9DD /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = People.m; sourceTree = "<group>"; };
+		C393EBB2178306A200DDA9DD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		C393EBB3178306A200DDA9DD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C393EBB4178306A200DDA9DD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		C393EBB6178306A200DDA9DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C393EBB8178306A200DDA9DD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C393EBBA178306A200DDA9DD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C393EBC6178306CE00DDA9DD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C393EBC7178306CE00DDA9DD /* CoreData.framework in Frameworks */,
 				C393EB7E1783058C00DDA9DD /* UIKit.framework in Frameworks */,
 				C393EB801783058C00DDA9DD /* Foundation.framework in Frameworks */,
 				C393EB821783058C00DDA9DD /* CoreGraphics.framework in Frameworks */,
@@ -75,6 +82,7 @@
 		C393EB7C1783058C00DDA9DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C393EBC6178306CE00DDA9DD /* CoreData.framework */,
 				C393EB7D1783058C00DDA9DD /* UIKit.framework */,
 				C393EB7F1783058C00DDA9DD /* Foundation.framework */,
 				C393EB811783058C00DDA9DD /* CoreGraphics.framework */,
@@ -85,29 +93,79 @@
 		C393EB831783058C00DDA9DD /* Drop2 */ = {
 			isa = PBXGroup;
 			children = (
-				C393EB8C1783058C00DDA9DD /* AppDelegate.h */,
-				C393EB8D1783058C00DDA9DD /* AppDelegate.m */,
-				C393EB951783058C00DDA9DD /* MainStoryboard_iPhone.storyboard */,
-				C393EB981783058C00DDA9DD /* MainStoryboard_iPad.storyboard */,
-				C393EB9B1783058C00DDA9DD /* ViewController.h */,
-				C393EB9C1783058C00DDA9DD /* ViewController.m */,
-				C393EB841783058C00DDA9DD /* Supporting Files */,
+				C393EBA3178306A200DDA9DD /* Controllers */,
+				C393EBA6178306A200DDA9DD /* Delegate */,
+				C393EBAB178306A200DDA9DD /* Libs */,
+				C393EBAC178306A200DDA9DD /* Models */,
+				C393EBB1178306A200DDA9DD /* Resources */,
+				C393EBB7178306A200DDA9DD /* Storyboards */,
+				C393EBB9178306A200DDA9DD /* Support */,
 			);
 			path = Drop2;
 			sourceTree = "<group>";
 		};
-		C393EB841783058C00DDA9DD /* Supporting Files */ = {
+		C393EBA3178306A200DDA9DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C393EB851783058C00DDA9DD /* Drop2-Info.plist */,
-				C393EB861783058C00DDA9DD /* InfoPlist.strings */,
-				C393EB891783058C00DDA9DD /* main.m */,
-				C393EB8B1783058C00DDA9DD /* Drop2-Prefix.pch */,
-				C393EB8F1783058C00DDA9DD /* Default.png */,
-				C393EB911783058C00DDA9DD /* Default@2x.png */,
-				C393EB931783058C00DDA9DD /* Default-568h@2x.png */,
+				C393EBA4178306A200DDA9DD /* ViewController.h */,
+				C393EBA5178306A200DDA9DD /* ViewController.m */,
 			);
-			name = "Supporting Files";
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C393EBA6178306A200DDA9DD /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				C393EBA7178306A200DDA9DD /* AppDelegate.h */,
+				C393EBA8178306A200DDA9DD /* AppDelegate.m */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		C393EBAB178306A200DDA9DD /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		C393EBAC178306A200DDA9DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C393EBAD178306A200DDA9DD /* Drop2.xcdatamodeld */,
+				C393EBAF178306A200DDA9DD /* People.h */,
+				C393EBB0178306A200DDA9DD /* People.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C393EBB1178306A200DDA9DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C393EBB2178306A200DDA9DD /* Default-568h@2x.png */,
+				C393EBB3178306A200DDA9DD /* Default.png */,
+				C393EBB4178306A200DDA9DD /* Default@2x.png */,
+				C393EBB5178306A200DDA9DD /* InfoPlist.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C393EBB7178306A200DDA9DD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C393EBB8178306A200DDA9DD /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C393EBB9178306A200DDA9DD /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				C393EBA9178306A200DDA9DD /* Drop2-Info.plist */,
+				C393EBAA178306A200DDA9DD /* Drop2-Prefix.pch */,
+				C393EBBA178306A200DDA9DD /* main.m */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,12 +219,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C393EB881783058C00DDA9DD /* InfoPlist.strings in Resources */,
-				C393EB901783058C00DDA9DD /* Default.png in Resources */,
-				C393EB921783058C00DDA9DD /* Default@2x.png in Resources */,
-				C393EB941783058C00DDA9DD /* Default-568h@2x.png in Resources */,
-				C393EB971783058C00DDA9DD /* MainStoryboard_iPhone.storyboard in Resources */,
-				C393EB9A1783058C00DDA9DD /* MainStoryboard_iPad.storyboard in Resources */,
+				C393EBBD178306A200DDA9DD /* Drop2-Info.plist in Resources */,
+				C393EBC0178306A200DDA9DD /* Default-568h@2x.png in Resources */,
+				C393EBC1178306A200DDA9DD /* Default.png in Resources */,
+				C393EBC2178306A200DDA9DD /* Default@2x.png in Resources */,
+				C393EBC3178306A200DDA9DD /* InfoPlist.strings in Resources */,
+				C393EBC4178306A200DDA9DD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,37 +235,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C393EB8A1783058C00DDA9DD /* main.m in Sources */,
-				C393EB8E1783058C00DDA9DD /* AppDelegate.m in Sources */,
-				C393EB9D1783058C00DDA9DD /* ViewController.m in Sources */,
+				C393EBBB178306A200DDA9DD /* ViewController.m in Sources */,
+				C393EBBC178306A200DDA9DD /* AppDelegate.m in Sources */,
+				C393EBBE178306A200DDA9DD /* Drop2.xcdatamodeld in Sources */,
+				C393EBBF178306A200DDA9DD /* People.m in Sources */,
+				C393EBC5178306A200DDA9DD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C393EB861783058C00DDA9DD /* InfoPlist.strings */ = {
+		C393EBB5178306A200DDA9DD /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C393EB871783058C00DDA9DD /* en */,
+				C393EBB6178306A200DDA9DD /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		C393EB951783058C00DDA9DD /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C393EB961783058C00DDA9DD /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		C393EB981783058C00DDA9DD /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C393EB991783058C00DDA9DD /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -277,6 +321,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Drop2/Drop2-Prefix.pch";
 				INFOPLIST_FILE = "Drop2/Drop2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -288,6 +333,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Drop2/Drop2-Prefix.pch";
 				INFOPLIST_FILE = "Drop2/Drop2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -314,6 +360,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C393EBAD178306A200DDA9DD /* Drop2.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C393EBAE178306A200DDA9DD /* Model.xcdatamodel */,
+			);
+			currentVersion = C393EBAE178306A200DDA9DD /* Model.xcdatamodel */;
+			path = Drop2.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C393EB721783058C00DDA9DD /* Project object */;
 }

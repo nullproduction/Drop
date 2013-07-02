@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'Drop2' target in the 'Drop2' project
+// Prefix header for all source files of the 'Drop' target in the 'Drop' project
 //
 
 #import <Availability.h>
@@ -11,4 +11,5 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
 #endif
