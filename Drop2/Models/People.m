@@ -7,7 +7,6 @@
 
 @implementation People
 
-@dynamic faceID;
 @dynamic name;
 @dynamic ticdsSyncID;
 

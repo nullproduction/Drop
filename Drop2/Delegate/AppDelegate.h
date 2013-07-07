@@ -1,24 +1,13 @@
 //
 //  AppDelegate.h
-//  Drop
-//
-//  Created by Администратор on 7/2/13.
-//  Copyright (c) 2013 Администратор. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Config.h"
 #import "TICoreDataSync.h"
+#import "ViewController.h"
 #import "DropboxSDK.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, DBSessionDelegate,
-DBLoginControllerDelegate, TICDSApplicationSyncManagerDelegate, TICDSDocumentSyncManagerDelegate>
-{
-    TICDSDocumentSyncManager *_documentSyncManager;
-    BOOL _downloadStoreAfterRegistering;
-}
-
-#define kTICDDropboxSyncKey @"c9o9lj5p5nx9w97"
-#define kTICDDropboxSyncSecret @"6x0oj4zifup8a1y"
+@interface AppDelegate : NSObject <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -27,10 +16,14 @@ DBLoginControllerDelegate, TICDSApplicationSyncManagerDelegate, TICDSDocumentSyn
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (retain) TICDSDocumentSyncManager *documentSyncManager;
-@property (nonatomic, assign,getter = shouldDownloadStoreAfterRegistering) BOOL downloadStoreAfterRegistering;
+@property (nonatomic, assign, getter = shouldDownloadStoreAfterRegistering) BOOL downloadStoreAfterRegistering;
+@property (nonatomic, assign) NSInteger activity;
+
+@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-- (void)registerSyncManager;
+
+- (IBAction)beginSynchronizing:(id)sender;
 
 @end

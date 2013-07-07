@@ -1,9 +1,5 @@
 //
 //  ViewController.m
-//  Drop
-//
-//  Created by Администратор on 7/2/13.
-//  Copyright (c) 2013 Администратор. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -13,43 +9,27 @@
 
 @synthesize fetchedResultsController, managedObjectContext;
 
+
+/*
+ * 
+ */
 - (void)viewDidLoad
 {
+    // Super
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(persistentStoresDidChange:)
-     name:NSPersistentStoreCoordinatorStoresDidChangeNotification
-     object:[[self managedObjectContext]
-             persistentStoreCoordinator]];
+    // Notification persistentStoresDidChange
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(persistentStoresDidChange:) name:NSPersistentStoreCoordinatorStoresDidChangeNotification object:self.managedObjectContext.persistentStoreCoordinator];
     
+    // Sync Button
+    UIBarButtonItem *syncButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:[[UIApplication sharedApplication] delegate] action:@selector(beginSynchronizing:)];
+    self.navigationItem.leftBarButtonItem = syncButton;
 }
 
 
-- (void)viewDidUnload
-{
-    [[NSNotificationCenter defaultCenter]
-     removeObserver:self
-     name:NSPersistentStoreCoordinatorStoresDidChangeNotification
-     object:[[self managedObjectContext]
-             persistentStoreCoordinator]];
-    
-    [super viewDidUnload];
-}
-
-
-- (void)persistentStoresDidChange:(NSNotification *)aNotification
-{
-    NSError *anyError = nil;
-    BOOL success = [[self fetchedResultsController]
-                    performFetch:&anyError];
-    if( !success ) {
-        NSLog(@"Error fetching: %@", anyError);
-    }
-    //[[self tableView] reloadData];
-}
-
+/*
+ *
+ */
 - (IBAction)insert:(id)sender
 {
     NSManagedObject *people = [NSEntityDescription
@@ -60,11 +40,18 @@
 
     // Save
     NSError *error;
-    if (![self.managedObjectContext save:&error]) {
+    if (![self.managedObjectContext save:&error])
+    {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-   }
+    }
 }
 
+
+
+
+/*
+ *
+ */
 - (IBAction)fetch:(id)sender
 {
     NSLog(@"FETCH");
@@ -73,13 +60,16 @@
                                     inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    for (NSManagedObject *item in fetchedObjects) {
+    for (NSManagedObject *item in fetchedObjects)
+    {
         NSLog(@"Name: %@", [item valueForKey:@"name"]);
     }
 }
 
 
-
+/*
+ *
+ */
 -(NSString *)genRandStringLength: (int) len {
     NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
@@ -91,10 +81,35 @@
     return randomString;
 }
 
-- (void)didReceiveMemoryWarning
+
+/*
+ *
+ */
+- (void)viewDidUnload
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // Remove notification
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSPersistentStoreCoordinatorStoresDidChangeNotification object:self.managedObjectContext.persistentStoreCoordinator];
+    
+    // Super
+    [super viewDidUnload];
+}
+
+
+#pragma mark - NSPersistentStoreCoordinatorStoresDidChangeNotification method
+
+/*
+ * Persistent stores change
+ */
+- (void)persistentStoresDidChange:(NSNotification *)aNotification
+{
+    NSError *anyError = nil;
+    BOOL success = [self.fetchedResultsController performFetch:&anyError];
+    if (success == NO)
+    {
+        NSLog(@"Error fetching: %@", anyError);
+    }
+    
+    //[self.tableView reloadData];
 }
 
 @end
