@@ -22,5 +22,5 @@
 // Encryption Password
 #define kEncryptionPassword @"0x1928b43"
 
-// Show activity sync
+// Show activity sync 
 #define kShowActivitySync NO
