@@ -33,7 +33,6 @@
     // Activity sync
     if(kShowActivitySync==YES)
     {
-        NSLog(@"show");
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(activityDidIncrease:) name:TICDSApplicationSyncManagerDidIncreaseActivityNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(activityDidDecrease:) name:TICDSApplicationSyncManagerDidDecreaseActivityNotification object:nil];
         
@@ -115,12 +114,11 @@
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil)
     {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
     return _managedObjectContext;
 }
-
 
 /*
  * managedObjectModel
@@ -141,7 +139,6 @@
  */
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-    
     if (_persistentStoreCoordinator != nil)
     {
         return _persistentStoreCoordinator;
@@ -149,18 +146,16 @@
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:kStoreURL];
     
-    // Check for an existing store here
     if ([[NSFileManager defaultManager] fileExistsAtPath:storeURL.path] == NO)
     {
         self.downloadStoreAfterRegistering = YES;
     }
     
     NSError *error = nil;
-    
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error])
     {
-        
+    
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }

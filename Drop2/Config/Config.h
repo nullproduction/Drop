@@ -17,7 +17,7 @@
 #define kModelURL @"Drop2"
 
 // Document Identifier
-#define kDocumentIdentifier @"Notebook"
+#define kDocumentIdentifier @"Drop2"
 
 // Encryption Password
 #define kEncryptionPassword @"0x1928b43"
