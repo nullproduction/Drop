@@ -8,6 +8,5 @@
 @implementation People
 
 @dynamic name;
-@dynamic ticdsSyncID;
 
 @end

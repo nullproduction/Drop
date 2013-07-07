@@ -23,6 +23,7 @@
 		C335D76817898833006E7148 /* documentInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = C335D76117898833006E7148 /* documentInfo.plist */; };
 		C335D76917898833006E7148 /* ReadMe.txt in Resources */ = {isa = PBXBuildFile; fileRef = C335D76217898833006E7148 /* ReadMe.txt */; };
 		C335D76D178988F5006E7148 /* libTICoreDataSync-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C335D75617898825006E7148 /* libTICoreDataSync-iOS.a */; };
+		C388F60E178998750024F11B /* Drop2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C388F60C178998750024F11B /* Drop2.xcdatamodeld */; };
 		C393EB7E1783058C00DDA9DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C393EB7D1783058C00DDA9DD /* UIKit.framework */; };
 		C393EB801783058C00DDA9DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C393EB7F1783058C00DDA9DD /* Foundation.framework */; };
 		C393EB821783058C00DDA9DD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C393EB811783058C00DDA9DD /* CoreGraphics.framework */; };
@@ -64,6 +65,7 @@
 		C335D76017898833006E7148 /* deviceInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = deviceInfo.plist; sourceTree = "<group>"; };
 		C335D76117898833006E7148 /* documentInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = documentInfo.plist; sourceTree = "<group>"; };
 		C335D76217898833006E7148 /* ReadMe.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
+		C388F60D178998750024F11B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C393EB7A1783058C00DDA9DD /* Drop2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Drop2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C393EB7D1783058C00DDA9DD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C393EB7F1783058C00DDA9DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -132,6 +134,7 @@
 		C335D68017898446006E7148 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C388F60C178998750024F11B /* Drop2.xcdatamodeld */,
 				C335D68317898446006E7148 /* People.h */,
 				C335D68417898446006E7148 /* People.m */,
 			);
@@ -334,6 +337,7 @@
 				C335D71D17898446006E7148 /* main.m in Sources */,
 				C335D76417898833006E7148 /* TICDSSyncChange.xcdatamodel in Sources */,
 				C335D76617898833006E7148 /* TICDSSyncChangeSet.xcdatamodeld in Sources */,
+				C388F60E178998750024F11B /* Drop2.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +472,16 @@
 			);
 			currentVersion = C335D75E17898833006E7148 /* TICDSSyncChangeSet.xcdatamodel */;
 			path = TICDSSyncChangeSet.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		C388F60C178998750024F11B /* Drop2.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C388F60D178998750024F11B /* Model.xcdatamodel */,
+			);
+			currentVersion = C388F60D178998750024F11B /* Model.xcdatamodel */;
+			path = Drop2.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
