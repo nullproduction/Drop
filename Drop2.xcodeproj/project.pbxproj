@@ -22,7 +22,6 @@
 		C335D76717898833006E7148 /* deviceInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = C335D76017898833006E7148 /* deviceInfo.plist */; };
 		C335D76817898833006E7148 /* documentInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = C335D76117898833006E7148 /* documentInfo.plist */; };
 		C335D76917898833006E7148 /* ReadMe.txt in Resources */ = {isa = PBXBuildFile; fileRef = C335D76217898833006E7148 /* ReadMe.txt */; };
-		C335D76C178988B8006E7148 /* Drop2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C335D68117898446006E7148 /* Drop2.xcdatamodeld */; };
 		C335D76D178988F5006E7148 /* libTICoreDataSync-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C335D75617898825006E7148 /* libTICoreDataSync-iOS.a */; };
 		C393EB7E1783058C00DDA9DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C393EB7D1783058C00DDA9DD /* UIKit.framework */; };
 		C393EB801783058C00DDA9DD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C393EB7F1783058C00DDA9DD /* Foundation.framework */; };
@@ -51,7 +50,6 @@
 		C335D54117898445006E7148 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C335D54217898445006E7148 /* Drop2-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Drop2-Info.plist"; path = "../Drop2-Info.plist"; sourceTree = "<group>"; };
 		C335D54317898445006E7148 /* Drop2-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Drop2-Prefix.pch"; path = "../Drop2-Prefix.pch"; sourceTree = "<group>"; };
-		C335D68217898446006E7148 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		C335D68317898446006E7148 /* People.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = People.h; sourceTree = "<group>"; };
 		C335D68417898446006E7148 /* People.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = People.m; sourceTree = "<group>"; };
 		C335D68617898446006E7148 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 		C335D68017898446006E7148 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C335D68117898446006E7148 /* Drop2.xcdatamodeld */,
 				C335D68317898446006E7148 /* People.h */,
 				C335D68417898446006E7148 /* People.m */,
 			);
@@ -331,7 +328,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C335D76C178988B8006E7148 /* Drop2.xcdatamodeld in Sources */,
 				C335D68F17898446006E7148 /* ViewController.m in Sources */,
 				C335D69017898446006E7148 /* AppDelegate.m in Sources */,
 				C335D71717898446006E7148 /* People.m in Sources */,
@@ -465,16 +461,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C335D68117898446006E7148 /* Drop2.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				C335D68217898446006E7148 /* Model.xcdatamodel */,
-			);
-			currentVersion = C335D68217898446006E7148 /* Model.xcdatamodel */;
-			path = Drop2.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		C335D75D17898833006E7148 /* TICDSSyncChangeSet.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
